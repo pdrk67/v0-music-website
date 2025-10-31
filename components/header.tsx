@@ -1,16 +1,17 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
 import { AuthDialog } from "./auth-dialog"
 import { UploadDialog } from "./upload-dialog"
 import { LeaderboardDialog } from "./leaderboard-dialog"
+import { TypeScriptDialog } from "./typescript-dialog"
 
 export function Header() {
   const [authDialogOpen, setAuthDialogOpen] = useState(false)
   const [authMode, setAuthMode] = useState<"login" | "register">("login")
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false)
   const [leaderboardDialogOpen, setLeaderboardDialogOpen] = useState(false)
+  const [typescriptDialogOpen, setTypescriptDialogOpen] = useState(false)
 
   const handleAuthClick = (mode: "login" | "register") => {
     setAuthMode(mode)
@@ -31,22 +32,18 @@ export function Header() {
             <h1 className="text-primary font-mono text-lg font-bold tracking-wider">NUM SEI O QUE LÁ RECORDS</h1>
           </div>
           <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-foreground hover:text-primary hover:bg-primary/10"
+            <button
+              className="text-foreground hover:text-primary hover:bg-primary/10 px-3 py-1 text-sm font-mono transition-colors"
               onClick={() => handleAuthClick("register")}
             >
               REGISTER
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-foreground hover:text-primary hover:bg-primary/10"
+            </button>
+            <button
+              className="text-foreground hover:text-primary hover:bg-primary/10 px-3 py-1 text-sm font-mono transition-colors"
               onClick={() => handleAuthClick("login")}
             >
               LOGIN
-            </Button>
+            </button>
           </div>
         </div>
 
@@ -63,18 +60,24 @@ export function Header() {
           {/* Navigation */}
           <div className="relative z-10 flex items-center h-full px-8">
             <nav className="flex gap-4">
-              <Button
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold"
+              <button
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-6 py-2 font-mono transition-colors"
                 onClick={() => setUploadDialogOpen(true)}
               >
                 UPLOAD
-              </Button>
-              <Button
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold"
+              </button>
+              <button
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-6 py-2 font-mono transition-colors"
                 onClick={() => setLeaderboardDialogOpen(true)}
               >
                 LEADERBOARD
-              </Button>
+              </button>
+              <button
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-6 py-2 font-mono transition-colors"
+                onClick={() => setTypescriptDialogOpen(true)}
+              >
+                TYPESCRIPT
+              </button>
             </nav>
           </div>
         </div>
@@ -83,6 +86,7 @@ export function Header() {
       <AuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} mode={authMode} />
       <UploadDialog open={uploadDialogOpen} onOpenChange={setUploadDialogOpen} />
       <LeaderboardDialog open={leaderboardDialogOpen} onOpenChange={setLeaderboardDialogOpen} />
+      <TypeScriptDialog open={typescriptDialogOpen} onOpenChange={setTypescriptDialogOpen} />
     </>
   )
 }

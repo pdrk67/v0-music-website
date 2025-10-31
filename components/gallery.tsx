@@ -5,25 +5,6 @@ import Image from "next/image"
 export function Gallery() {
   const items = Array.from({ length: 16 }, (_, i) => i + 1)
 
-  const imageQueries = [
-    "anime girl with pink hair digital art",
-    "cyberpunk neon city aesthetic",
-    "vaporwave sunset palm trees",
-    "retro 90s computer graphics",
-    "y2k aesthetic glitter stars",
-    "anime boy with headphones",
-    "pixel art landscape sunset",
-    "glitch art portrait neon",
-    "kawaii pastel aesthetic",
-    "synthwave retrowave art",
-    "anime girl with cat ears",
-    "digital art space galaxy",
-    "vaporwave aesthetic statue",
-    "retro anime 90s style",
-    "cyberpunk girl neon lights",
-    "y2k butterfly aesthetic",
-  ]
-
   const descriptions = [
     "pink dreams ♡",
     "neon nights",
@@ -49,12 +30,7 @@ export function Gallery() {
         {items.map((item) => (
           <div key={item} className="group cursor-pointer">
             <div className="aspect-square bg-card border-2 border-primary/30 hover:border-primary transition-colors relative overflow-hidden">
-              <Image
-                src={`/.jpg?height=400&width=400&query=${encodeURIComponent(imageQueries[item - 1])}`}
-                alt={`Gallery image ${item}`}
-                fill
-                className="object-cover"
-              />
+              <Image src="/kouon.jpg" alt={`Gallery image ${item}`} fill className="object-cover" />
               <div className="absolute bottom-0 left-0 right-0 bg-background/90 border-t border-primary/50 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
                 <p className="text-primary text-xs font-bold">IMAGE_{item.toString().padStart(3, "0")}</p>
                 <p className="text-muted-foreground text-xs">2003.12.{item.toString().padStart(2, "0")}</p>
