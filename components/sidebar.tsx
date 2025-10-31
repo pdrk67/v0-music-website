@@ -18,7 +18,7 @@ export function Sidebar() {
 
         {/* Artist image */}
         <div className="relative aspect-square rounded-sm overflow-hidden border-2 border-accent">
-          <img src="/y2k-aesthetic-portrait-with-pink-and-purple-neon-l.jpg" alt="Artist avatar" className="w-full h-full object-cover" />
+          <img src="/kouon.jpg" alt="Artist avatar" className="w-full h-full object-cover" />
         </div>
 
         {/* Bio section */}
